@@ -1,18 +1,21 @@
 import React from "react";
+import {StyledH1, StyledP, MainContainer, Photo} from "./NasaPhotoStyles"
 
 function NasaPhoto(props) {
   const { data } = props;
+
   return (
     <div className="apod">
-      <div className="container">
-        <h1>{data.title}</h1>
-        <img src={data.url} alt={data.title} />
+      <div className="top"><StyledH1>{data.title}</StyledH1></div>
+      <MainContainer className="container">
+      <div className="photo">
+        <Photo src={data.url} alt={data.title}></Photo>
       </div>
       <div className="info">
-        <div className="column">{data.date}</div>
-        <div className="column">{data.explanation}</div>
-        <div className="column">{data.copyright}</div>
+        <div className="column"><StyledP>{data.explanation}</StyledP></div>
       </div>
+      </MainContainer>
+      <div className="column">{data.date}</div>
     </div>
   );
 }
